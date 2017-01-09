@@ -1,0 +1,52 @@
+﻿<?php	
+	$val = $_REQUEST['val'];
+	$lc = $_REQUEST['lc'];
+	$uc = $_REQUEST['uc'];
+	$page = $_REQUEST['page'];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript">
+		function page_move(pagenum)
+		{
+			var f = document.sendForm;	// 폼이름			
+			f.hval.value = pagenum;
+			f.submit();
+		}
+	</script>
+</head>
+<body>
+<form name="sendForm" action="getpost.html" method="post">
+	<select name="val">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select>
+	<select name="lc">
+		<option value="a">a</option>
+		<option value="b">b</option>
+		<option value="c">c</option>
+	</select>
+	<select name="uc">
+		<option value="A">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
+	</select>
+	<input type="hidden" name="hval" value="">
+	<div>
+		<BUTTON type="submit">전송</BUTTON>
+	</div>
+</form>
+<div>
+	<?php 
+		echo "숫자: ".$val."  소문자: ".$lc." 대문자: ".$uc."페이지: ".$page;
+		$page = 1;
+	?>
+</div>
+<div>
+	<a href=\"javascript:page_move($page);\">링크</a>
+</div>
+</body>
+</html>
